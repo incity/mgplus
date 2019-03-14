@@ -252,8 +252,8 @@ if test "x$build_ft2_support" != "xno"; then
         foo=bar,
         build_ft2_support=no)
 
-    FT2_CFLAGS="`freetype-config --cflags`"
-    FT2_LIBS="`freetype-config --libs`"
+#    FT2_CFLAGS="`freetype-config --cflags`"
+#    FT2_LIBS="`freetype-config --libs`"
 fi
 
 if test "x$devel_mode" = "xyes"; then
@@ -274,7 +274,7 @@ if test "$ac_cv_prog_gcc" = "yes"; then
 fi
 
 CPPFLAGS="$CPPFLAGS $FT2_CFLAGS"
-DEP_LIBS="$DEP_LIBS $MINIGUI_LIBS $FT2_LIBS -lpthread -lstdc++"
+DEP_LIBS="$DEP_LIBS $MINIGUI_LIBS $FT2_LIBS -lstdc++"
 
 AM_CONDITIONAL(MGPLUS_FONT_FT2, test "x$build_ft2_support" = "xyes")
 
