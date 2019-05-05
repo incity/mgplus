@@ -36,7 +36,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <map>
+//#include <map>
 
 #include <minigui/common.h>
 #include <minigui/minigui.h>
