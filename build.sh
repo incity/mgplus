@@ -20,10 +20,10 @@ if [ ! -f "./configure" ];then
     
 fi
 
-OUTPUT=/home/suyc/V3S/minigui-git/output
+OUTPUT=/home/suyc/V3S/camdroid/device/softwinner/tiger-cdr/app/XiaoE/3rd-party
 
 CC=$ANDROID_BUILD_TOP/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc \
-CXX=$ANDROID_BUILD_TOP/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-g++ \
+CXX=$ANDROID_BUILD_TOP/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc \
 AR=$ANDROID_BUILD_TOP/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ar \
 RANLIB=$ANDROID_BUILD_TOP/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ranlib \
 CFLAGS="-O3 -I$OUTPUT/include -L$OUTPUT/lib -I$ANDROID_BUILD_TOP/external/freetype/include -I$ANDROID_BUILD_TOP/hardware/libhardware_legacy/include -I$ANDROID_BUILD_TOP/hardware/libhardware_legacy/include/hardware_legacy -I$ANDROID_BUILD_TOP/bionic/libc/kernel/common/linux/can -I$ANDROID_BUILD_TOP/bionic/libm/include -I$ANDROID_BUILD_TOP/bionic/libc/include -I$ANDROID_BUILD_TOP/bionic/libc/arch-arm/include -I$ANDROID_BUILD_TOP/bionic/libstdc++/include -I$ANDROID_BUILD_TOP/bionic/libc/kernel/common -I$ANDROID_BUILD_TOP/bionic/libc/kernel/arch-arm -L$ANDROID_PRODUCT_OUT/system/lib -nostdlib -lm -lstdc++ -lc -ldl -Bdynamic -Wl,-dynamic-linker,/system/bin/linker" \
@@ -32,7 +32,7 @@ LDFLAGS="-L$ANDROID_PRODUCT_OUT/system/lib" \
 PKG_CONFIG=/usr/bin/pkg-config \
 PKG_CONFIG_PATH=$OUTPUT/lib/pkgconfig \
 ./configure --host=arm-none-linux --target=arm-eabi  \
---enable-static --enable-shared \
+--enable-static --disable-shared \
 --prefix=$OUTPUT
 
 #sed -i 's/\/\* #undef HAVE_GETPAGESIZE \*\//#define HAVE_GETPAGESIZE   1/g' mgconfig.h
